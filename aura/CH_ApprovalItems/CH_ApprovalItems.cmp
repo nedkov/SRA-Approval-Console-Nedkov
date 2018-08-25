@@ -1,0 +1,120 @@
+<!-- 
+Approval Console| CH_ApprovalItems.cmp
+
+Author: Bluefolf, IBM
+
+Last Updated: 1 June, 2018
+ 
+description: Lightning component that displays items that need to be approve. 
+
+V1 - Lightning component that displays items that need to be approve.   
+-->
+<aura:component implements="flexipage:availableForAllPageTypes"
+                controller="CH_CTRL_ApprovalItems"
+                access="global" >
+    
+     
+    <!-- Attributes -->
+    <aura:attribute name="approvalItems" type="List"/>
+    <aura:attribute name="showModal" type="Boolean" default="false"/>
+    <aura:attribute name="currentActorId" type="String"/>
+    <aura:attribute name="currentItemId" type="String"/>
+    <aura:attribute name="commentType" type="String"/>
+    
+    <!-- Custom Labels -->
+    <aura:attribute name="CH_ApprovalItems_Title" type="String" 
+                    default="{!$Label.c.CH_ApprovalItems_Title}" />
+    <aura:attribute name="CH_ApprovalItems_Action" type="String" 
+                    default="{!$Label.c.CH_ApprovalItems_Action}" />
+    <aura:attribute name="CH_ApprovalItems_Related_To" type="String" 
+                    default="{!$Label.c.CH_ApprovalItems_Related_To}" />
+    <aura:attribute name="CH_ApprovalItems_Type" type="String" 
+                    default="{!$Label.c.CH_ApprovalItems_Type}" />
+    <aura:attribute name="CH_ApprovalItems_MostRecentApprover" type="String" 
+                    default="{!$Label.c.CH_ApprovalItems_MostRecentApprover}" />
+    <aura:attribute name="CH_ApprovalItems_DateSubmitted" type="String" 
+                    default="{!$Label.c.CH_ApprovalItems_DateSubmitted}" />
+    <aura:attribute name="CH_ApprovalItems_Reassign" type="String" 
+                    default="{!$Label.c.CH_ApprovalItems_Reassign}" />
+    <aura:attribute name="CH_ApprovalItems_NoItemsToApprove" type="String" 
+                    default="{!$Label.c.CH_ApprovalItems_NoItemsToApprove}" />                                                                
+    <aura:attribute name="CH_ApprovalItems_AssignedTo" type="String" 
+                    default="{!$Label.c.CH_ApprovalItems_AssignedTo}" />
+    <aura:attribute name="CH_ApprovalItems_Approve" type="String" 
+                    default="{!$Label.c.CH_ApprovalItems_Approve}" />
+    <aura:attribute name="CH_ApprovalItems_Reject" type="String" 
+                    default="{!$Label.c.CH_ApprovalItems_Reject}" />
+    
+    <!-- Handler -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <!-- Visual Content -->
+    <article class="slds-card slds-card_boundary forceBaseCard">
+        <div class="slds-text-heading_small slds-p-left_medium slds-p-top_medium">
+            <b>{!v.CH_ApprovalItems_Title}</b>
+        </div>
+        <div class="slds-p-around_medium">
+            
+            <div style="overflow-x:auto;">    
+                <table class="slds-table slds-table_bordered" >
+                    <colgroup>
+                        <col width="16%" />
+                        <col width="16%" />
+                        <col width="16%" />
+                        <col width="16%" />
+                        <col width="16%" /> 
+                        <col width="16%" />
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th><b>{!v.CH_ApprovalItems_Action}</b></th>
+                            <th><b>{!v.CH_ApprovalItems_Related_To}</b></th>
+                            <th><b>{!v.CH_ApprovalItems_Type}</b></th>
+                            <th><b>{!v.CH_ApprovalItems_MostRecentApprover}</b></th>
+                            <th><b>{!v.CH_ApprovalItems_DateSubmitted}</b></th>
+                            <th><b>{!v.CH_ApprovalItems_AssignedTo}</b></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- If there are no items to display; display a "no items to display message -->
+                        <aura:if isTrue="{!v.approvalItems.length == 0}">
+                            <div class="slds-align_absolute-center">
+                                {!v.CH_ApprovalItems_NoItemsToApprove}
+                            </div>
+                        </aura:if>
+                        
+                        <!-- Table Rows -->
+                        <aura:iteration items="{!v.approvalItems}" var="approvalItem">
+                            <tr>
+                                <td>
+                                    <a href="{!approvalItem.manageApprovalUrl}" style="color: rgb(0, 109, 204);">{!v.CH_ApprovalItems_Reassign}</a> | 
+                                    <a href="" onclick="{!c.approveItem}" id="{! approvalItem.relatedToId +' '+approvalItem.actorId}" style="color: rgb(0, 109, 204);">{!v.CH_ApprovalItems_Approve}</a> / 
+                                    <a href="" onclick="{!c.rejectItem}" id="{! approvalItem.relatedToId +' '+approvalItem.actorId}" actorid="{!approvalItem.relatedToId}" style="color: rgb(0, 109, 204);">{!v.CH_ApprovalItems_Reject}</a> 
+                                </td>
+                                <td>
+                                    <a onclick="{!c.navToObj}" id="{!approvalItem.relatedToId}" style="color: rgb(0, 109, 204);">
+                                        {!approvalItem.relatedToName}
+                                    </a>
+                                </td>
+                                <td>{!approvalItem.relatedToObjectName}</td>
+                                <td>
+                                    <a class="link-color" id="{!approvalItem.mostRecentApprovarId}" onclick="{!c.navToUser}" style="color: rgb(0, 109, 204);">{!approvalItem.mostRecentApprovarName} </a>
+                                </td>
+                                <td>{!approvalItem.submittedDate}</td>
+                                <td>
+                                    {!approvalItem.assignToName}
+                                    
+                                </td>
+                            </tr>
+                        </aura:iteration>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </article>
+    
+    <!-- Modal Component -->
+    <aura:if isTrue="{!v.showModal}">
+        <c:CH_ApprovalItems_Modal showModal="{!v.showModal}" actorId="{#v.currentActorId}" itemId="{#v.currentItemId}" commentType="{!v.commentType}"/>
+    </aura:if>
+</aura:component>

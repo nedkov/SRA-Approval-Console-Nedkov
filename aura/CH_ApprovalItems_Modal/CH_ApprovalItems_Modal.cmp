@@ -1,0 +1,60 @@
+<!-- 
+CH_ApprovalItems_Modal
+
+Modal that takes in comments to be captured for the approval process
+used by the lightning component CH_ApprovalItems.cmp -->
+<aura:component controller="CH_CTRL_ApprovalItems">
+    
+    
+    <!-- Attributes -->
+    <aura:attribute name="comment" type="String"/>
+    <aura:attribute name="commentType" type="String"/>
+    <aura:attribute name="actorId" type="String"/>
+    <aura:attribute name="itemId" type="String"/>
+    <aura:attribute name="showModal" type="Boolean" default="true"/>
+    
+    <!-- Custom Labels -->
+    <aura:attribute name="Approval_Header" type="String" 
+                    default="{!$Label.c.CH_ApprovalItems_SubmitForApproval}" />    
+    <aura:attribute name="Rejection_Header" type="String" 
+                    default="{!$Label.c.CH_ApprovalItems_SubmitForRejection}" />
+    
+    <div>
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" 
+                 aria-describedby="modal-content-id-1" 
+                 class="slds-modal slds-slide-down-cancel">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" 
+                            title="Close">
+                        <lightning:icon iconName="utility:close" 
+                                        alternativeText="close" 
+                                        onclick="{!c.closeModal}"/>
+                    </button>
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">
+                        
+                        <!-- Modal Header -->
+                        <aura:if isTrue="{! v.commentType == 'Approve'}">
+                            {!v.Approval_Header}
+                            <aura:set attribute="else">
+                                {!v.Rejection_Header}
+                            </aura:set>
+                        </aura:if>
+                    </h2>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    
+                    <!-- Comment Text Area -->
+                    <lightning:textarea label="Comment" name="{!v.comment}"/>
+                </div>
+                <footer class="slds-modal__footer">
+                    
+                    <!-- Modal Footer Buttons -->
+                    <button class="slds-button slds-button_neutral" onclick="{! c.closeModal}">Cancel</button>
+                    <button class="slds-button slds-button_brand" onclick="{! c.save}">{!v.commentType}</button>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </div>
+</aura:component>

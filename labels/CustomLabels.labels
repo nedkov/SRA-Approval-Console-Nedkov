@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+ <labels>
+  <fullName>CH_ApprovalItems_Related_To</fullName>
+  <categories>CH_ApprovalItems</categories>
+  <language>en_US</language>
+  <protected>false</protected>
+  <shortDescription>CH_ApprovalItems_Related_To</shortDescription>
+  <value>Related To</value>
+ </labels>
+ <labels>
+  <fullName>CH_ApprovalItems_Title</fullName>
+  <categories>CH_ApprovalItems</categories>
+  <language>en_US</language>
+  <protected>false</protected>
+  <shortDescription>CH_ApprovalItems_Title</shortDescription>
+  <value>Items to Approve</value>
+ </labels>
+ <labels>
+  <fullName>CH_ApprovalItems_Action</fullName>
+  <categories>CH_ApprovalItems</categories>
+  <language>en_US</language>
+  <protected>false</protected>
+  <shortDescription>CH_ApprovalItems_Action</shortDescription>
+  <value>Action</value>
+ </labels>
+ <labels>
+  <fullName>CH_ApprovalItems_Type</fullName>
+  <categories>CH_ApprovalItems</categories>
+  <language>en_US</language>
+  <protected>false</protected>
+  <shortDescription>CH_ApprovalItems_Type</shortDescription>
+  <value>Type</value>
+ </labels>
+ <labels>
+  <fullName>CH_ApprovalItems_AssignedTo</fullName>
+  <categories>CH_ApprovalItems</categories>
+  <language>en_US</language>
+  <protected>false</protected>
+  <shortDescription>CH_ApprovalItems_AssignedTo</shortDescription>
+  <value>Assigned To</value>
+ </labels>
+ <labels>
+  <fullName>CH_ApprovalItems_Approve</fullName>
+  <categories>CH_ApprovalItems</categories>
+  <language>en_US</language>
+  <protected>false</protected>
+  <shortDescription>CH_ApprovalItems_Approve</shortDescription>
+  <value>Approve</value>
+ </labels>
+ <labels>
+  <fullName>CH_ApprovalItems_Reject</fullName>
+  <categories>CH_ApprovalItems</categories>
+  <language>en_US</language>
+  <protected>false</protected>
+  <shortDescription>CH_ApprovalItems_Reject</shortDescription>
+  <value>Reject</value>
+ </labels>
+ <labels>
+  <fullName>CH_ApprovalItems_MostRecentApprover</fullName>
+  <categories>CH_ApprovalItems</categories>
+  <language>en_US</language>
+  <protected>false</protected>
+  <shortDescription>CH_ApprovalItems_MostRecentApprover</shortDescription>
+  <value>Most Recent Approver</value>
+ </labels>
+ <labels>
+  <fullName>CH_ApprovalItems_DateSubmitted</fullName>
+  <categories>CH_ApprovalItems</categories>
+  <language>en_US</language>
+  <protected>false</protected>
+  <shortDescription>CH_ApprovalItems_DateSubmitted</shortDescription>
+  <value>Date Submitted</value>
+ </labels>
+ <labels>
+  <fullName>CH_ApprovalItems_Reassign</fullName>
+  <categories>CH_ApprovalItems</categories>
+  <language>en_US</language>
+  <protected>false</protected>
+  <shortDescription>CH_ApprovalItems_Reassign</shortDescription>
+  <value>Reassign</value>
+ </labels>
+ <labels>
+  <fullName>CH_ApprovalItems_NoItemsToApprove</fullName>
+  <categories>CH_ApprovalItems</categories>
+  <language>en_US</language>
+  <protected>false</protected>
+  <shortDescription>CH_ApprovalItems_NoItemsToApprove</shortDescription>
+  <value>No items to approve.</value>
+ </labels>
+</CustomLabels>

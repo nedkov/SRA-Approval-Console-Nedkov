@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+ <types>
+  <members>CH_ApprovalItems_Title</members>
+  <members>CH_ApprovalItems_AssignedTo</members>
+  <members>CH_ApprovalItems_NoItemsToApprove</members>
+  <members>CH_ApprovalItems_Type</members>
+  <members>CH_ApprovalItems_Approve</members>
+  <members>CH_ApprovalItems_MostRecentApprover</members>
+  <members>CH_ApprovalItems_Related_To</members>
+  <members>CH_ApprovalItems_Reassign</members>
+  <members>CH_ApprovalItems_Reject</members>
+  <members>CH_ApprovalItems_Action</members>
+  <members>CH_ApprovalItems_DateSubmitted</members>
+  <name>CustomLabel</name>
+ </types>
+ <types>
+  <members>CH_CTRL_ApprovalItems_Test</members>
+  <members>CH_CTRL_ApprovalItems</members>
+  <members>SObjectBuilder</members>
+  <members>SObjectFactoryState</members>
+  <name>ApexClass</name>
+ </types>
+ <types>
+  <members>Knowledge__kav.IH_Article_Status__c</members>
+  <name>CustomField</name>
+ </types>
+ <types>
+  <members>CH_ApprovalItems</members>
+  <members>CH_ApprovalItems_Modal</members>
+  <name>AuraDefinitionBundle</name>
+ </types>
+ <version>43.0</version>
+</Package>
