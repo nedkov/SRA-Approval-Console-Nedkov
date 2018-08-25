@@ -1,0 +1,13 @@
+.THIS .link-color{
+    color : #0000ff;
+}
+
+.THIS .link-color:hover {
+    text-decoration: underline;
+}
+.THIS span.description {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 150px;
+}
