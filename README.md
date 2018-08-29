@@ -14,7 +14,7 @@ Component is built to handle any object’s approval.
 
 n/a
 
-## Version
+## Versions
 
 ### Version 1
 
