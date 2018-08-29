@@ -17,8 +17,6 @@
  <types>
   <members>CH_CTRL_ApprovalItems_Test</members>
   <members>CH_CTRL_ApprovalItems</members>
-  <members>SObjectBuilder</members>
-  <members>SObjectFactoryState</members>
   <name>ApexClass</name>
  </types>
  <types>
