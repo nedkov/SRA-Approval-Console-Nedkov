@@ -12,6 +12,11 @@ Component is built to handle any object’s approval.
 
 ## Design Attributes:
 
+## Version
+
+### Version 1
+
+* Core Functionality
 
 ## Components:
 
@@ -52,3 +57,5 @@ Drag and Drop no customization needed for all objects, except for KAV has an add
 Verify Dependencies are added
 Suggestions for Future Updates:
 Filters on the component. 
+
+
