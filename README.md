@@ -12,6 +12,8 @@ Component is built to handle any object’s approval.
 
 ## Design Attributes:
 
+n/a
+
 ## Version
 
 ### Version 1
